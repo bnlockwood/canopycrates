@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "WebFetch(domain:www.michellelockwood.com)",
+      "Bash(python3 -c \":*)",
+      "WebFetch(domain:web.archive.org)",
+      "WebFetch(domain:www.instagram.com)",
+      "WebFetch(domain:www.pinterest.com)",
+      "WebFetch(domain:au.pinterest.com)",
+      "WebFetch(domain:www.facebook.com)",
+      "WebFetch(domain:blogs.dctc.edu)",
+      "WebFetch(domain:webcache.googleusercontent.com)",
+      "Bash(python -c \":*)",
+      "WebFetch(domain:unsplash.com)",
+      "Bash(curl -s -L -o /dev/null -w \"%{url_effective}\\\\n%{http_code}\\\\n%{size_download}\" \"https://unsplash.com/photos/X9TEqJWmM6Q/download\" -H \"User-Agent: Mozilla/5.0\")",
+      "Bash(curl -s -L -o /dev/null -w \"%{url_effective}\" \"https://unsplash.com/photos/7lnm93Qu1F0/download\" -H \"User-Agent: Mozilla/5.0\")",
+      "Bash(curl -s -L -o /dev/null -w \"%{url_effective}\" \"https://unsplash.com/photos/green-moss-on-rock-formation-near-river-during-daytime-a25OI0mWMQo/download\" -H \"User-Agent: Mozilla/5.0\")",
+      "Bash(curl -s -L -o /dev/null -w \"%{url_effective}\\\\n%{http_code}\" \"https://unsplash.com/photos/a25OI0mWMQo/download\" -H \"User-Agent: Mozilla/5.0\")",
+      "Bash(# Try Pixabay API \\(no key needed for small results\\) curl -s \"\"https://pixabay.com/api/?key=46498182-19bc9f5c30dd0fa0bca5aa3ef&q=rainforest+creek+boulders+moss&image_type=photo&per_page=3&min_width=1200\"\" -H \"\"User-Agent: Mozilla/5.0\"\")",
+      "Bash(test -d \"C:\\\\Users\\\\bnloc\\\\OneDrive\\\\Documents\\\\Claude\\\\Sessions\\\\Canopy Crate/.git\")",
+      "Bash(git init)",
+      "Bash(git add .gitignore DOCUMENTATION.md index.html css/styles.css js/main.js images/ .claude/launch.json .claude/settings.local.json)"
+    ]
+  }
+}

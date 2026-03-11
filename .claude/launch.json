@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "canopy-crates",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["-e", "const http=require('http'),fs=require('fs'),path=require('path');const BASE='C:/Users/bnloc/OneDrive/Documents/Claude/Sessions/Canopy Crate';const mimes={'.html':'text/html','.css':'text/css','.js':'application/javascript','.json':'application/json','.png':'image/png','.jpg':'image/jpeg','.webp':'image/webp','.svg':'image/svg+xml','.ico':'image/x-icon'};http.createServer((req,res)=>{let f=path.join(BASE,decodeURIComponent(req.url.split('?')[0]));if(f.endsWith(path.sep)||f.endsWith('/'))f=path.join(f,'index.html');const ext=path.extname(f);fs.readFile(f,(err,data)=>{if(err){res.writeHead(404);res.end('Not found: '+f);return;}res.writeHead(200,{'Content-Type':mimes[ext]||'application/octet-stream','Access-Control-Allow-Origin':'*'});res.end(data);});}).listen(3000,()=>console.log('Server running on port 3000'));"],
+      "port": 3000
+    }
+  ]
+}

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canopy Crates | The Soul of the Region, Delivered</title>
+  <meta name="description" content="Curated hampers of local Daintree region treasures, delivered to your AirBnb or boutique hotel. Handpicked by someone who knows every producer by name.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Navigation (Navy bg, White text, Gold hover) -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <img src="images/logo-canopy-crates-light.svg" alt="Canopy Crates">
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#crates" class="nav-link">Our Crates</a></li>
+        <li><a href="#vendors" class="nav-link">Local Producers</a></li>
+        <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+        <li><a href="#contact" class="nav-link nav-cta">Order Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero" id="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-tagline">A sense of place</p>
+      <h1 class="hero-title">Experience the Soul<br>of the Daintree</h1>
+      <p class="hero-subtitle">Curated hampers of local treasures, delivered to your door. Handpicked regional delicacies from artisan producers in Far North Queensland.</p>
+      <div class="hero-actions">
+        <a href="#crates" class="btn btn-primary">Explore Our Crates</a>
+        <a href="#how-it-works" class="btn btn-outline">How It Works</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll to discover</span>
+      <div class="scroll-indicator"></div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image">
+          <div class="about-image-wrapper">
+            <img src="images/about-daintree-creek.jpg" alt="Daintree rainforest creek with mossy boulders and golden sunlight filtering through the canopy">
+          </div>
+          <div class="about-badge">
+            <span class="badge-number">100%</span>
+            <span class="badge-text">Local Producers</span>
+          </div>
+        </div>
+        <div class="about-content">
+          <span class="section-label">Our Story</span>
+          <h2 class="section-title">The Producers You'd Never Find on the Tourist Trail</h2>
+          <p class="about-text">Canopy Crates is the product arm of Canopy Collective &mdash; bringing the authentic flavours, makers, and character of the Cairns and Daintree region directly to boutique hotel guests and AirBnb visitors.</p>
+          <p class="about-text">Every crate is an invitation to experience the region beyond the tourist trail. Selected, packaged, and delivered personally by Michelle &mdash; someone who knows which valley the best honey comes from, and which producer nobody else has heard of yet.</p>
+          <div class="about-features">
+            <div class="feature">
+              <div class="feature-icon">&#127853;</div>
+              <div>
+                <h4>Locally Sourced</h4>
+                <p>No generic or supermarket-sourced products. Every item comes from artisan producers in the region.</p>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="feature-icon">&#128230;</div>
+              <div>
+                <h4>Curated with Care</h4>
+                <p>Handpicked, considered, and beautifully packaged. We never default to the easy choice.</p>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="feature-icon">&#128666;</div>
+              <div>
+                <h4>Delivered to Your Door</h4>
+                <p>Straight to your accommodation across the Daintree and Port Douglas region.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Crates Section -->
+  <section class="crates" id="crates">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Our Collection</span>
+        <h2 class="section-title">Choose Your Crate</h2>
+        <p class="section-subtitle">Each crate is a curated selection of the finest local produce, artisan goods, and regional specialties from the Daintree and Far North Queensland.</p>
+      </div>
+
+      <div class="crates-grid">
+        <!-- The Morning Crate -->
+        <div class="crate-card" id="morning">
+          <div class="crate-image">
+            <img src="images/breakfast-hamper.svg" alt="The Morning Crate basket with honey, bread, avocado and tropical fruit" class="crate-illustration" loading="lazy">
+            <div class="crate-badge">12hr Lead Time</div>
+          </div>
+          <div class="crate-content">
+            <span class="crate-category">Breakfast</span>
+            <h3 class="crate-title">The Morning Crate</h3>
+            <p class="crate-tagline">Start the day the Daintree way.</p>
+            <ul class="crate-items">
+              <li>
+                <span class="item-icon">&#127855;</span>
+                <div>
+                  <strong>Local Honey</strong>
+                  <span>Pure raw honey from Daintree apiaries</span>
+                </div>
+              </li>
+              <li>
+                <span class="item-icon">&#127838;</span>
+                <div>
+                  <strong>Fresh Artisan Bread</strong>
+                  <span>Locally baked, still warm</span>
+                </div>
+              </li>
+              <li>
+                <span class="item-icon">&#129361;</span>
+                <div>
+                  <strong>Avocado</strong>
+                  <span>Perfectly ripe, locally grown</span>
+                </div>
+              </li>
+              <li>
+                <span class="item-icon">&#127824;</span>
+                <div>
+                  <strong>Seasonal Tropical Fruit</strong>
+                  <span>Custard Apple, Mango, or Lychees</span>
+                </div>
+              </li>
+            </ul>
+            <div class="crate-footer">
+              <span class="crate-audience">Perfect for breakfast in bed</span>
+              <a href="#contact" class="btn btn-primary btn-sm">Order This Crate</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- The Sundowner Crate -->
+        <div class="crate-card" id="sundowner">
+          <div class="crate-image">
+            <img src="images/sundowner-hamper.svg" alt="The Sundowner Crate hamper with wine, cheese, grapes and crackers" class="crate-illustration" loading="lazy">
+            <div class="crate-badge">12hr Lead Time</div>
+          </div>
+          <div class="crate-content">
+            <span class="crate-category">Twilight</span>
+            <h3 class="crate-title">The Sundowner Crate</h3>
+            <p class="crate-tagline">Wine, cheese, and the best seat in the tropics.</p>
+            <ul class="crate-items">
+              <li>
+                <span class="item-icon">&#127863;</span>
+                <div>
+                  <strong>Wine or Bubbly</strong>
+                  <span>From Epicurean Port Douglas</span>
+                </div>
+              </li>
+              <li>
+                <span class="item-icon">&#129472;</span>
+                <div>
+                  <strong>Artisan Cheese</strong>
+                  <span>Selected from local suppliers</span>
+                </div>
+              </li>
+              <li>
+                <span class="item-icon">&#127850;</span>
+                <div>
+                  <strong>Biscuits &amp; Crackers</strong>
+                  <span>Curated gourmet selection</span>
+                </div>
+              </li>
+              <li>
+                <span class="item-icon">&#127824;</span>
+                <div>
+                  <strong>Seasonal Tropical Fruit</strong>
+                  <span>Custard Apple, Mango, or Lychees</span>
+                </div>
+              </li>
+            </ul>
+            <div class="crate-footer">
+              <span class="crate-audience">An effortless sunset picnic</span>
+              <a href="#contact" class="btn btn-primary btn-sm">Order This Crate</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Regional Goodies -->
+        <div class="crate-card featured" id="regional">
+          <div class="crate-image">
+            <img src="images/regional-crate.svg" alt="Regional Goodies wooden crate filled with Daintree chocolate, tea, fermented foods, sauces and honey" class="crate-illustration" loading="lazy">
+            <div class="crate-badge featured-badge">48hr Lead Time</div>
+            <div class="crate-ribbon">Seasonal</div>
+          </div>
+          <div class="crate-content">
+            <span class="crate-category">Discovery</span>
+            <h3 class="crate-title">Regional Goodies</h3>
+            <p class="crate-tagline">The soul of the region, boxed.</p>
+            <p class="crate-description">A showcase of the Daintree's finest artisan producers. The products visitors don't find on the tourist trail &mdash; handcrafted regional delicacies worth discovering.</p>
+            <ul class="crate-items">
+              <li>
+                <span class="item-icon">&#127851;</span>
+                <div>
+                  <strong>Daintree Chocolate</strong>
+                  <span>Australia's only tree-to-bar chocolate</span>
+                </div>
+              </li>
+              <li>
+                <span class="item-icon">&#127861;</span>
+                <div>
+                  <strong>Daintree Tea</strong>
+                  <span>Pure Australian black tea since 1978</span>
+                </div>
+              </li>
+              <li>
+                <span class="item-icon">&#129382;</span>
+                <div>
+                  <strong>Kefir Queen Fermented Foods</strong>
+                  <span>Small-batch artisan ferments from Port Douglas</span>
+                </div>
+              </li>
+              <li>
+                <span class="item-icon">&#127798;</span>
+                <div>
+                  <strong>Fenglehorn Sauces</strong>
+                  <span>Award-winning chilli sauces from FNQ</span>
+                </div>
+              </li>
+              <li>
+                <span class="item-icon">&#127855;</span>
+                <div>
+                  <strong>Local Honey</strong>
+                  <span>Pure Daintree rainforest honey</span>
+                </div>
+              </li>
+              <li>
+                <span class="item-icon">&#129389;</span>
+                <div>
+                  <strong>Dried Mango</strong>
+                  <span>Sun-dried tropical sweetness</span>
+                </div>
+              </li>
+              <li>
+                <span class="item-icon">&#129523;</span>
+                <div>
+                  <strong>Daintree Wellness</strong>
+                  <span>Natural skincare from the rainforest</span>
+                </div>
+              </li>
+            </ul>
+            <p class="seasonal-note">Contents vary by season. We'll always include something worth discovering.</p>
+            <div class="crate-footer">
+              <span class="crate-audience">The perfect gift or souvenir</span>
+              <a href="#contact" class="btn btn-primary btn-sm">Order This Crate</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- The Celebration Crate -->
+        <div class="crate-card" id="celebration">
+          <div class="crate-image">
+            <img src="images/bridal-hamper.svg" alt="The Celebration Crate elegant basket with champagne, roses, chocolate and fruit" class="crate-illustration" loading="lazy">
+            <div class="crate-badge">12hr Lead Time</div>
+          </div>
+          <div class="crate-content">
+            <span class="crate-category">Wedding &amp; Events</span>
+            <h3 class="crate-title">The Celebration Crate</h3>
+            <p class="crate-tagline">Curated indulgence before your most beautiful moment.</p>
+            <p class="crate-customise-note">Build your own selection from the following:</p>
+            <ul class="crate-items">
+              <li>
+                <span class="item-icon">&#127863;</span>
+                <div>
+                  <strong>Wine or Bubbly</strong>
+                  <span>From Epicurean Port Douglas</span>
+                </div>
+              </li>
+              <li>
+                <span class="item-icon">&#129472;</span>
+                <div>
+                  <strong>Artisan Cheese &amp; Dips</strong>
+                  <span>From local suppliers</span>
+                </div>
+              </li>
+              <li>
+                <span class="item-icon">&#127863;</span>
+                <div>
+                  <strong>Mango Wine or Fruit Wine</strong>
+                  <span>From Shannonvale Winery</span>
+                </div>
+              </li>
+              <li>
+                <span class="item-icon">&#127851;</span>
+                <div>
+                  <strong>Daintree Chocolate</strong>
+                  <span>Handcrafted Australian-grown chocolate</span>
+                </div>
+              </li>
+              <li>
+                <span class="item-icon">&#127824;</span>
+                <div>
+                  <strong>Seasonal Tropical Fruit</strong>
+                  <span>Custard Apple, Mango, or Lychees</span>
+                </div>
+              </li>
+              <li>
+                <span class="item-icon">&#129523;</span>
+                <div>
+                  <strong>Daintree Wellness</strong>
+                  <span>Natural skincare treats</span>
+                </div>
+              </li>
+            </ul>
+            <div class="crate-footer">
+              <span class="crate-audience">Customisable for your perfect day</span>
+              <a href="#contact" class="btn btn-primary btn-sm">Enquire Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vendors Section -->
+  <section class="vendors" id="vendors">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Our Producers</span>
+        <h2 class="section-title">Meet the Locals</h2>
+        <p class="section-subtitle">We partner with passionate artisan producers from across the Daintree and Far North Queensland. Every product tells a story of this remarkable region.</p>
+      </div>
+
+      <div class="vendors-grid">
+        <a href="https://www.daintreeestates.com/" target="_blank" rel="noopener" class="vendor-card">
+          <div class="vendor-image">
+            <img src="https://www.daintreeestates.com/assets/thumbL/DEC80D70.webp?20250726180939" alt="Daintree Estates Chocolate" loading="lazy">
+          </div>
+          <div class="vendor-content">
+            <h4>Daintree Estates</h4>
+            <span class="vendor-type">Tree-to-Bar Chocolate</span>
+            <p>Australia's first and only tree-to-bar chocolate, grown and crafted in the Daintree since 2011.</p>
+          </div>
+        </a>
+
+        <a href="https://daintreetea.com.au/" target="_blank" rel="noopener" class="vendor-card">
+          <div class="vendor-image">
+            <img src="https://daintreetea.com.au/wp-content/uploads/2023/11/O_loose-leaf-250g-premium-packaging-2000x2000-1.jpg" alt="Daintree Tea" loading="lazy">
+          </div>
+          <div class="vendor-content">
+            <h4>Daintree Tea</h4>
+            <span class="vendor-type">Australian Black Tea</span>
+            <p>Pure Australian-grown tea from the Cubbagudta Plantation, pesticide-free since 1978.</p>
+          </div>
+        </a>
+
+        <a href="https://www.kefirqueen.com.au/" target="_blank" rel="noopener" class="vendor-card">
+          <div class="vendor-image">
+            <img src="https://images.squarespace-cdn.com/content/v1/5923596817bffcfb95a0efa1/1534291376440-806LHRGUZZ03M3APYRWB/Kefir-queen-sauerkraut.jpg" alt="Kefir Queen Fermented Foods" loading="lazy">
+          </div>
+          <div class="vendor-content">
+            <h4>Kefir Queen</h4>
+            <span class="vendor-type">Fermented Foods</span>
+            <p>Small-batch, handcrafted ferments from Port Douglas. Water kefir, kombucha, sauerkraut, and more.</p>
+          </div>
+        </a>
+
+        <a href="https://www.epicureanportdouglas.com.au/" target="_blank" rel="noopener" class="vendor-card">
+          <div class="vendor-image vendor-image-placeholder">
+            <span class="vendor-placeholder-icon">&#127863;</span>
+            <span class="vendor-placeholder-text">Epicurean</span>
+          </div>
+          <div class="vendor-content">
+            <h4>Epicurean Port Douglas</h4>
+            <span class="vendor-type">French Provincial Fine Foods</span>
+            <p>Artisan terrines, cured meats, French cheeses, and curated wines at the heart of Port Douglas.</p>
+          </div>
+        </a>
+
+        <a href="https://www.shannonvalewine.com.au/" target="_blank" rel="noopener" class="vendor-card">
+          <div class="vendor-image vendor-image-placeholder">
+            <span class="vendor-placeholder-icon">&#127815;</span>
+            <span class="vendor-placeholder-text">Shannonvale</span>
+          </div>
+          <div class="vendor-content">
+            <h4>Shannonvale Winery</h4>
+            <span class="vendor-type">Tropical Fruit Wines</span>
+            <p>Award-winning mango, passionfruit, and lychee wines crafted from organically grown fruit near Port Douglas.</p>
+          </div>
+        </a>
+
+        <a href="https://www.fenglehorn.com.au/" target="_blank" rel="noopener" class="vendor-card">
+          <div class="vendor-image">
+            <img src="https://cdn.shopify.com/s/files/1/0269/3061/0218/files/hab150ml.png?v=1747612899" alt="Fenglehorn Sauces" loading="lazy">
+          </div>
+          <div class="vendor-content">
+            <h4>Fenglehorn Sauces</h4>
+            <span class="vendor-type">Award-Winning Chilli Sauces</span>
+            <p>Handmade from 100% Queensland-grown chillies. Multi-award-winning, including a national first place.</p>
+          </div>
+        </a>
+
+        <a href="https://www.daintreewellness.com.au/" target="_blank" rel="noopener" class="vendor-card">
+          <div class="vendor-image">
+            <img src="https://images.squarespace-cdn.com/content/v1/6475886a499949386692b838/c0c7838c-8d64-4e1c-bf2a-4d8c4b91d45c/Daintree+Wellness+Logo+July+2023.png" alt="Daintree Wellness" loading="lazy">
+          </div>
+          <div class="vendor-content">
+            <h4>Daintree Wellness</h4>
+            <span class="vendor-type">Natural Skincare</span>
+            <p>Natural wellbeing products inspired by Indigenous wisdom and Australian native botanicals from the Daintree.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Simple As</span>
+        <h2 class="section-title">How It Works</h2>
+      </div>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Choose Your Crate</h3>
+          <p>Browse our curated crates and find the one that suits your occasion &mdash; from a morning ritual to a sunset celebration.</p>
+        </div>
+        <div class="step-divider"></div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Place Your Order</h3>
+          <p>Order online or contact us directly. We need just 12 hours notice for most crates, 48 hours for Regional Goodies.</p>
+        </div>
+        <div class="step-divider"></div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>We Deliver</h3>
+          <p>Your crate is handpicked, beautifully packaged, and delivered to your accommodation. We hope it finds you somewhere beautiful.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section (photo background with Navy overlay) -->
+  <section class="cta-section">
+    <div class="cta-bg"></div>
+    <div class="cta-overlay"></div>
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Taste the Daintree?</h2>
+        <p>Whether you're celebrating a special occasion, searching for the perfect gift, or simply want to discover the best of the region &mdash; we've got a crate for you.</p>
+        <div class="cta-features">
+          <div class="cta-feature">
+            <span>&#127796;</span>
+            <span>Local Delivery</span>
+          </div>
+          <div class="cta-feature">
+            <span>&#9201;</span>
+            <span>12hr Lead Time</span>
+          </div>
+          <div class="cta-feature">
+            <span>&#128230;</span>
+            <span>Beautifully Packaged</span>
+          </div>
+        </div>
+        <a href="#contact" class="btn btn-primary btn-lg">Order Your Crate</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <span class="section-label">Get in Touch</span>
+          <h2 class="section-title">Order Your Crate</h2>
+          <p>Your crate is on its way. We hope it finds you somewhere beautiful. Place your order or get in touch with any questions.</p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <span class="contact-icon">&#128231;</span>
+              <div>
+                <strong>Email</strong>
+                <a href="mailto:hello@canopycrates.com.au">hello@canopycrates.com.au</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">&#128222;</span>
+              <div>
+                <strong>Phone</strong>
+                <a href="tel:+61400000000">0400 000 000</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">&#128205;</span>
+              <div>
+                <strong>Delivery Area</strong>
+                <span>Cairns &amp; Daintree Region, Far North Queensland</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">&#9201;</span>
+              <div>
+                <strong>Lead Times</strong>
+                <span>12 hours (most crates) &middot; 48 hours (Regional Goodies)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-wrapper">
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" required placeholder="Jane Smith">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="jane@example.com">
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" placeholder="0400 000 000">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="accommodation">Accommodation Name &amp; Address</label>
+              <input type="text" id="accommodation" name="accommodation" required placeholder="e.g. Silky Oaks Lodge, Mossman">
+            </div>
+            <div class="form-group">
+              <label for="crate">Which Crate?</label>
+              <select id="crate" name="crate" required>
+                <option value="">Select a crate...</option>
+                <option value="morning">The Morning Crate</option>
+                <option value="sundowner">The Sundowner Crate</option>
+                <option value="regional">Regional Goodies</option>
+                <option value="celebration">The Celebration Crate</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="date">Preferred Delivery Date</label>
+              <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Special Requests</label>
+              <textarea id="message" name="message" rows="3" placeholder="Any dietary requirements, allergies, or special requests..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-full">Send Order Enquiry</button>
+            <p class="form-note">We'll confirm your order and final pricing within a few hours. Pricing includes all products, curation, packaging, and delivery.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (Navy bg, Gold accents, Canopy Collective credit) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo">
+            <img src="images/logo-canopy-crates-light.svg" alt="Canopy Crates">
+          </a>
+          <p>Curated discovery from the Daintree. The soul of the region, delivered to your door.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#crates">Our Crates</a></li>
+            <li><a href="#vendors">Local Producers</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Crates</h4>
+          <ul>
+            <li><a href="#morning">The Morning Crate</a></li>
+            <li><a href="#sundowner">The Sundowner Crate</a></li>
+            <li><a href="#regional">Regional Goodies</a></li>
+            <li><a href="#celebration">The Celebration Crate</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:hello@canopycrates.com.au">hello@canopycrates.com.au</a></li>
+            <li><a href="#contact">Order Online</a></li>
+            <li>Cairns &amp; Daintree Region, QLD</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Canopy Crates. All rights reserved. We acknowledge the Kuku Yalanji people as the Traditional Custodians of the lands on which we operate.</p>
+        <p class="footer-collective">A <span>Canopy Collective</span> venture</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
