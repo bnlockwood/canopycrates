@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canopy Crates — Vendor Pitch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,600&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy: #1C2B4A;
+    --gold: #C4963A;
+    --ivory: #F5F0E6;
+    --slate: #7A8899;
+    --green: #3A7A56;
+    --teal: #2D7E7E;
+    --amber: #D4822A;
+    --sand: #F7EED8;
+    --charcoal: #2A2A2A;
+  }
+
+  body {
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+  }
+
+  .video-frame {
+    width: 960px;
+    height: 540px;
+    position: relative;
+    overflow: hidden;
+    background: var(--navy);
+  }
+
+  /* ─── SCENE BASE ─── */
+  .scene {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+  }
+  .scene.active { opacity: 1; pointer-events: auto; }
+
+  /* ─── GRAIN OVERLAY ─── */
+  .grain {
+    position: absolute; inset: 0; z-index: 100; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.4;
+  }
+
+  /* ─── PROGRESS BAR ─── */
+  .progress-bar {
+    position: absolute;
+    bottom: 0; left: 0;
+    height: 3px;
+    background: var(--gold);
+    z-index: 200;
+    transition: none;
+  }
+
+  /* ─── SCENE 1: OPEN ─── */
+  #s1 {
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column;
+  }
+  #s1 .ring {
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    border: 3px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    animation: pulse-ring 2s ease-in-out infinite;
+  }
+  @keyframes pulse-ring {
+    0%,100% { box-shadow: 0 0 0 0 rgba(196,150,58,0.3); }
+    50% { box-shadow: 0 0 0 18px rgba(196,150,58,0); }
+  }
+  #s1 .palm {
+    font-size: 64px;
+    animation: s1-palm 0.6s 0.2s both ease-out;
+  }
+  @keyframes s1-palm {
+    from { transform: scale(0.5) rotate(-10deg); opacity: 0; }
+    to   { transform: scale(1) rotate(0deg); opacity: 1; }
+  }
+  #s1 h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px; font-weight: 700;
+    color: #fff;
+    margin-top: 28px;
+    letter-spacing: 1px;
+    animation: fadeUp 0.7s 0.5s both;
+  }
+  #s1 .tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--gold);
+    font-size: 18px;
+    margin-top: 10px;
+    animation: fadeUp 0.7s 0.8s both;
+  }
+  #s1 .sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 4px;
+    color: var(--slate);
+    text-transform: uppercase;
+    margin-top: 24px;
+    animation: fadeUp 0.7s 1.1s both;
+  }
+  .gold-line {
+    width: 60px; height: 2px;
+    background: var(--gold);
+    margin: 16px auto 0;
+    animation: widen 0.6s 1.0s both;
+  }
+  @keyframes widen {
+    from { width: 0; opacity: 0; }
+    to   { width: 60px; opacity: 1; }
+  }
+
+  /* ─── SCENE 2: THE PROBLEM ─── */
+  #s2 {
+    background: var(--charcoal);
+    display: flex; align-items: center;
+    padding: 60px;
+  }
+  #s2 .left {
+    flex: 1;
+    padding-right: 50px;
+    border-right: 2px solid rgba(196,150,58,0.3);
+  }
+  #s2 .overline {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 20px;
+    animation: fadeUp 0.6s 0.3s both;
+  }
+  #s2 h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px; font-weight: 700;
+    color: var(--ivory);
+    line-height: 1.2;
+    animation: fadeUp 0.6s 0.5s both;
+  }
+  #s2 h2 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  #s2 .body {
+    font-size: 14px; color: var(--slate);
+    line-height: 1.8;
+    margin-top: 20px;
+    animation: fadeUp 0.6s 0.7s both;
+  }
+  #s2 .right {
+    flex: 0 0 300px;
+    padding-left: 50px;
+    display: flex; flex-direction: column; gap: 20px;
+  }
+  .stat-block {
+    animation: fadeLeft 0.5s both;
+  }
+  .stat-block:nth-child(1) { animation-delay: 0.6s; }
+  .stat-block:nth-child(2) { animation-delay: 0.8s; }
+  .stat-block:nth-child(3) { animation-delay: 1.0s; }
+  .stat-block .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px; font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-block .label {
+    font-size: 11px; color: var(--slate);
+    letter-spacing: 2px; text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* ─── SCENE 3: THE SOLUTION ─── */
+  #s3 {
+    background: var(--navy);
+    overflow: hidden;
+  }
+  #s3 .bg-geo {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 600px 400px at 80% 50%, rgba(58,122,86,0.15) 0%, transparent 70%),
+      radial-gradient(ellipse 300px 300px at 20% 80%, rgba(196,150,58,0.08) 0%, transparent 60%);
+  }
+  #s3 .content {
+    position: relative; z-index: 2;
+    padding: 60px;
+    display: flex; align-items: center; height: 100%;
+  }
+  #s3 .text { flex: 1; }
+  #s3 .overline {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 16px;
+    animation: fadeUp 0.6s 0.2s both;
+  }
+  #s3 h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px; font-weight: 700;
+    color: #fff;
+    line-height: 1.15;
+    animation: fadeUp 0.6s 0.4s both;
+  }
+  #s3 h2 span { color: var(--gold); }
+  #s3 .body {
+    font-size: 15px; color: rgba(255,255,255,0.7);
+    line-height: 1.8; margin-top: 20px;
+    max-width: 440px;
+    animation: fadeUp 0.6s 0.6s both;
+  }
+  #s3 .crate-visual {
+    flex: 0 0 280px;
+    height: 280px;
+    position: relative;
+    animation: fadeLeft 0.8s 0.5s both;
+  }
+  .crate-box {
+    width: 200px; height: 160px;
+    background: var(--sand);
+    border-radius: 4px;
+    position: absolute; bottom: 30px; left: 30px;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column;
+    box-shadow: 8px 8px 0 var(--gold);
+  }
+  .crate-box .icon { font-size: 42px; }
+  .crate-box .lbl {
+    font-size: 9px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--navy);
+    margin-top: 10px;
+  }
+  .crate-tag {
+    position: absolute; top: 20px; right: 10px;
+    background: var(--green);
+    color: #fff;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 2px;
+  }
+
+  /* ─── SCENE 4: THE CRATES ─── */
+  #s4 {
+    background: var(--sand);
+    display: flex; flex-direction: column;
+    padding: 50px 60px;
+  }
+  #s4 .overline {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 14px;
+    animation: fadeUp 0.5s 0.2s both;
+  }
+  #s4 h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px; color: var(--navy);
+    animation: fadeUp 0.5s 0.3s both;
+  }
+  #s4 .crates-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 28px;
+    flex: 1;
+  }
+  .crate-card {
+    background: #fff;
+    border-radius: 4px;
+    border-top: 4px solid var(--green);
+    padding: 20px 16px;
+    display: flex; flex-direction: column;
+    box-shadow: 0 4px 16px rgba(28,43,74,0.08);
+  }
+  .crate-card:nth-child(1) { animation: fadeUp 0.5s 0.4s both; }
+  .crate-card:nth-child(2) { animation: fadeUp 0.5s 0.55s both; border-top-color: var(--amber); }
+  .crate-card:nth-child(3) { animation: fadeUp 0.5s 0.7s both; border-top-color: var(--teal); }
+  .crate-card:nth-child(4) { animation: fadeUp 0.5s 0.85s both; border-top-color: var(--gold); }
+  .crate-card .cc-icon { font-size: 28px; margin-bottom: 12px; }
+  .crate-card .cc-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px; font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+  }
+  .crate-card .cc-tag {
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--slate);
+    margin-top: 6px;
+  }
+  .crate-card .cc-body {
+    font-size: 11px; color: var(--charcoal);
+    line-height: 1.6; margin-top: 10px;
+    flex: 1;
+  }
+  .crate-card .cc-badge {
+    margin-top: 12px;
+    font-size: 9px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--green);
+  }
+
+  /* ─── SCENE 5: THE OPPORTUNITY ─── */
+  #s5 {
+    background: var(--navy);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 60px;
+    overflow: hidden;
+  }
+  #s5 .bg-radial {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 700px 400px at 50% 50%, rgba(196,150,58,0.07), transparent 70%);
+    pointer-events: none;
+  }
+  #s5 .overline {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    position: relative; z-index: 2;
+    animation: fadeUp 0.5s 0.2s both;
+  }
+  #s5 h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px; font-weight: 700;
+    color: #fff; line-height: 1.15;
+    max-width: 640px;
+    position: relative; z-index: 2;
+    animation: fadeUp 0.6s 0.4s both;
+  }
+  #s5 h2 em { font-style: italic; color: var(--gold); }
+  #s5 .pillars {
+    display: flex; gap: 40px;
+    margin-top: 40px;
+    position: relative; z-index: 2;
+  }
+  .pillar {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 10px;
+  }
+  .pillar:nth-child(1) { animation: fadeUp 0.5s 0.6s both; }
+  .pillar:nth-child(2) { animation: fadeUp 0.5s 0.75s both; }
+  .pillar:nth-child(3) { animation: fadeUp 0.5s 0.9s both; }
+  .pillar .p-icon {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+  }
+  .pillar .p-title {
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold);
+  }
+  .pillar .p-body {
+    font-size: 12px; color: rgba(255,255,255,0.6);
+    text-align: center; line-height: 1.6;
+    max-width: 160px;
+  }
+
+  /* ─── SCENE 6: HOW IT WORKS ─── */
+  #s6 {
+    background: var(--ivory);
+    display: flex; flex-direction: column;
+    padding: 50px 60px;
+  }
+  #s6 .overline {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 12px;
+    animation: fadeUp 0.5s 0.2s both;
+  }
+  #s6 h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px; color: var(--navy);
+    animation: fadeUp 0.5s 0.3s both;
+  }
+  #s6 .steps {
+    display: flex; gap: 0; margin-top: 32px; flex: 1; align-items: center;
+  }
+  .step {
+    flex: 1; display: flex; flex-direction: column; align-items: center;
+    text-align: center; padding: 0 12px; position: relative;
+  }
+  .step:not(:last-child)::after {
+    content: ''; position: absolute;
+    right: -1px; top: 28px;
+    width: 1px; height: 40px;
+    background: var(--gold); opacity: 0.4;
+  }
+  .step:nth-child(1) { animation: fadeUp 0.5s 0.4s both; }
+  .step:nth-child(2) { animation: fadeUp 0.5s 0.55s both; }
+  .step:nth-child(3) { animation: fadeUp 0.5s 0.7s both; }
+  .step:nth-child(4) { animation: fadeUp 0.5s 0.85s both; }
+  .step:nth-child(5) { animation: fadeUp 0.5s 1.0s both; }
+  .step .s-num {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 14px;
+    flex-shrink: 0;
+  }
+  .step .s-title {
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .step .s-body {
+    font-size: 11px; color: var(--slate);
+    line-height: 1.6;
+  }
+  .step .s-icon { font-size: 24px; margin-bottom: 10px; }
+
+  /* ─── SCENE 7: COMMUNITY ─── */
+  #s7 {
+    background: var(--green);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 60px;
+    position: relative; overflow: hidden;
+  }
+  #s7::before {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.1);
+  }
+  #s7::after {
+    content: '';
+    position: absolute; bottom: -80px; left: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.08);
+  }
+  #s7 .quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 28px; color: #fff;
+    line-height: 1.4; max-width: 700px;
+    position: relative; z-index: 2;
+    animation: fadeUp 0.7s 0.3s both;
+  }
+  #s7 .quote::before {
+    content: '"';
+    font-size: 80px; color: rgba(255,255,255,0.15);
+    position: absolute; top: -20px; left: -20px;
+    font-family: 'Playfair Display', serif;
+    line-height: 1;
+  }
+  #s7 .attr {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-top: 24px; position: relative; z-index: 2;
+    animation: fadeUp 0.6s 0.6s both;
+  }
+  #s7 .attr::before {
+    content: '—'; margin-right: 8px; color: var(--gold);
+  }
+  #s7 .vendors {
+    display: flex; gap: 20px; margin-top: 36px;
+    position: relative; z-index: 2;
+    animation: fadeUp 0.6s 0.8s both;
+  }
+  .vendor-pill {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 11px; font-weight: 600;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+
+  /* ─── SCENE 8: CTA ─── */
+  #s8 {
+    background: var(--navy);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 60px;
+    overflow: hidden;
+  }
+  #s8 .bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 500px 300px at 30% 70%, rgba(58,122,86,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 400px 400px at 70% 30%, rgba(196,150,58,0.08) 0%, transparent 60%);
+  }
+  #s8 .overline {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 16px;
+    position: relative; z-index: 2;
+    animation: fadeUp 0.5s 0.2s both;
+  }
+  #s8 h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px; font-weight: 700;
+    color: #fff; line-height: 1.1;
+    position: relative; z-index: 2;
+    animation: fadeUp 0.6s 0.4s both;
+  }
+  #s8 .tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic; font-size: 18px;
+    color: var(--gold); margin-top: 12px;
+    position: relative; z-index: 2;
+    animation: fadeUp 0.6s 0.55s both;
+  }
+  #s8 .contact {
+    margin-top: 36px;
+    position: relative; z-index: 2;
+    animation: fadeUp 0.6s 0.7s both;
+    display: flex; flex-direction: column; gap: 8px;
+    align-items: center;
+  }
+  #s8 .contact-line {
+    font-size: 14px; color: rgba(255,255,255,0.7);
+    letter-spacing: 1px;
+  }
+  #s8 .contact-line strong { color: #fff; }
+  #s8 .divider {
+    width: 1px; height: 20px;
+    background: rgba(196,150,58,0.4); margin: 4px 0;
+  }
+  #s8 .logo-area {
+    margin-top: 32px;
+    position: relative; z-index: 2;
+    animation: fadeUp 0.6s 0.9s both;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+  }
+  #s8 .logo-ring {
+    width: 60px; height: 60px;
+    border-radius: 50%; border: 2px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+  }
+  #s8 .logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold);
+  }
+  #s8 .logo-sub {
+    font-size: 9px; font-weight: 400;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--slate);
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeLeft {
+    from { opacity: 0; transform: translateX(30px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+
+  /* ─── CONTROLS ─── */
+  .controls {
+    position: absolute; bottom: 16px; right: 16px;
+    z-index: 300; display: flex; gap: 10px;
+  }
+  .ctrl-btn {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 6px 14px; border-radius: 2px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    transition: background 0.2s;
+  }
+  .ctrl-btn:hover { background: rgba(255,255,255,0.2); }
+
+  /* ─── SCENE DOTS ─── */
+  .scene-dots {
+    position: absolute; bottom: 18px; left: 50%;
+    transform: translateX(-50%);
+    z-index: 300; display: flex; gap: 6px;
+  }
+  .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    transition: background 0.3s, width 0.3s;
+    cursor: pointer;
+  }
+  .dot.active { background: var(--gold); width: 20px; border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<div class="video-frame" id="frame">
+
+  <!-- GRAIN -->
+  <div class="grain"></div>
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-bar" id="progress"></div>
+
+  <!-- ── SCENE 1: BRAND OPEN (0–7s) ── -->
+  <div class="scene active" id="s1" data-duration="7000">
+    <div class="ring">
+      <span class="palm">🌴</span>
+    </div>
+    <h1>CANOPY CRATES</h1>
+    <div class="tagline">A sense of place. Delivered.</div>
+    <div class="gold-line"></div>
+    <div class="sub">Cairns & Daintree · Queensland</div>
+  </div>
+
+  <!-- ── SCENE 2: THE PROBLEM (7–17s) ── -->
+  <div class="scene" id="s2" data-duration="10000">
+    <div class="left">
+      <div class="overline">The Opportunity</div>
+      <h2>Visitors leave<br>without ever truly<br><em>tasting the region.</em></h2>
+      <p class="body">
+        Guests arrive at boutique hotels and Airbnbs with a defined path — reef, rainforest, repeat. 
+        The region's most remarkable producers remain invisible. Your products stay off the table.
+      </p>
+    </div>
+    <div class="right">
+      <div class="stat-block">
+        <div class="num">3.7M</div>
+        <div class="label">Annual Visitors · Tropical North QLD</div>
+      </div>
+      <div class="stat-block">
+        <div class="num">↑82%</div>
+        <div class="label">Growth in boutique & Airbnb stays</div>
+      </div>
+      <div class="stat-block">
+        <div class="num">0</div>
+        <div class="label">Curated local hamper services in the region</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SCENE 3: THE SOLUTION (17–26s) ── -->
+  <div class="scene" id="s3" data-duration="9000">
+    <div class="bg-geo"></div>
+    <div class="content">
+      <div class="text">
+        <div class="overline">Introducing</div>
+        <h2>We bring <span>your products</span><br>directly into<br>the guest experience.</h2>
+        <p class="body">
+          Canopy Crates delivers curated hampers — built entirely from local producers — to boutique hotel and Airbnb guests across Cairns and the Daintree. Personally selected, packaged, and delivered by Michelle.
+        </p>
+      </div>
+      <div class="crate-visual">
+        <div class="crate-box">
+          <div class="icon">🧺</div>
+          <div class="lbl">Canopy Crate</div>
+        </div>
+        <div class="crate-tag">Local Only</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SCENE 4: THE CRATES (26–38s) ── -->
+  <div class="scene" id="s4" data-duration="12000">
+    <div class="overline">Our Range</div>
+    <h2>Four curated crates. Each one a story.</h2>
+    <div class="crates-grid">
+      <div class="crate-card">
+        <div class="cc-icon">🍳</div>
+        <div class="cc-name">The Morning Crate</div>
+        <div class="cc-tag">Breakfast in Bed</div>
+        <div class="cc-body">Local honey, fresh bread, avocado & seasonal tropical fruit. Start the day the Daintree way.</div>
+        <div class="cc-badge">12hr lead time</div>
+      </div>
+      <div class="crate-card">
+        <div class="cc-icon">🍷</div>
+        <div class="cc-name">The Sundowner</div>
+        <div class="cc-tag">Twilight Picnic</div>
+        <div class="cc-body">Wine or bubbly from Epicurean, artisan cheese, crackers & seasonal fruit. The best seat in the tropics.</div>
+        <div class="cc-badge">12hr lead time</div>
+      </div>
+      <div class="crate-card">
+        <div class="cc-icon">🍃</div>
+        <div class="cc-name">Regional Goodies</div>
+        <div class="cc-tag">Gifts of the Region</div>
+        <div class="cc-body">Daintree Chocolate, Daintree Tea, fermented foods, wellness, dried mango. The soul of the region, boxed.</div>
+        <div class="cc-badge">48hr lead time · Seasonal</div>
+      </div>
+      <div class="crate-card">
+        <div class="cc-icon">🥂</div>
+        <div class="cc-name">The Celebration</div>
+        <div class="cc-tag">Wedding & Bridal Day</div>
+        <div class="cc-body">Fully customisable — wine, dips, cheese, local chocolate & wellness. Curated indulgence before your most beautiful moment.</div>
+        <div class="cc-badge">12hr lead time</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SCENE 5: THE OPPORTUNITY (38–48s) ── -->
+  <div class="scene" id="s5" data-duration="10000">
+    <div class="bg-radial"></div>
+    <div class="overline">Why Partner With Us</div>
+    <h2>A new channel for your product.<br><em>No setup. No shelf space. No guesswork.</em></h2>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="p-icon">📦</div>
+        <div class="p-title">New Distribution</div>
+        <div class="p-body">Reach guests who would never have found you — captive, curious, ready to spend.</div>
+      </div>
+      <div class="pillar">
+        <div class="p-icon">🔄</div>
+        <div class="p-title">Repeat Sales</div>
+        <div class="p-body">Guests who love your product can order online — building a new direct channel for your business.</div>
+      </div>
+      <div class="pillar">
+        <div class="p-icon">🌿</div>
+        <div class="p-title">Community First</div>
+        <div class="p-body">We feature your story on every producer card. Your brand travels with every crate.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SCENE 6: HOW IT WORKS (48–55s) ── -->
+  <div class="scene" id="s6" data-duration="7000">
+    <div class="overline">Simple by Design</div>
+    <h2>How it works for you.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="s-icon">🤝</div>
+        <div class="s-num">1</div>
+        <div class="s-title">Partner</div>
+        <div class="s-body">Agree on a wholesale rate. We handle everything else.</div>
+      </div>
+      <div class="step">
+        <div class="s-icon">📦</div>
+        <div class="s-num">2</div>
+        <div class="s-title">Supply</div>
+        <div class="s-body">We collect or you deliver. Flexible and low-friction.</div>
+      </div>
+      <div class="step">
+        <div class="s-icon">🧺</div>
+        <div class="s-num">3</div>
+        <div class="s-title">Curate</div>
+        <div class="s-body">Michelle personally curates and packages every crate.</div>
+      </div>
+      <div class="step">
+        <div class="s-icon">🏨</div>
+        <div class="s-num">4</div>
+        <div class="s-title">Deliver</div>
+        <div class="s-body">Delivered to boutique hotels and Airbnbs across the region.</div>
+      </div>
+      <div class="step">
+        <div class="s-icon">✨</div>
+        <div class="s-num">5</div>
+        <div class="s-title">Grow</div>
+        <div class="s-body">Your brand reaches guests, earns fans, builds new sales.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SCENE 7: COMMUNITY (55–60s) ── -->
+  <div class="scene" id="s7" data-duration="5000">
+    <div class="quote">
+      Your products deserve to be tasted. Your story deserves to be told. Canopy Crates is how we make that happen — together.
+    </div>
+    <div class="attr">Michelle, Founder — Canopy Crates</div>
+    <div class="vendors">
+      <div class="vendor-pill">🍫 Daintree Chocolate</div>
+      <div class="vendor-pill">🍵 Daintree Tea</div>
+      <div class="vendor-pill">🍯 Local Honey</div>
+      <div class="vendor-pill">🥂 Epicurean</div>
+      <div class="vendor-pill">🌿 Daintree Wellness</div>
+    </div>
+  </div>
+
+  <!-- ── SCENE 8: CTA (60s+) ── -->
+  <div class="scene" id="s8" data-duration="999999">
+    <div class="bg"></div>
+    <div class="overline">Let's Work Together</div>
+    <h2>Bring your product<br>into the crate.</h2>
+    <div class="tagline">The region. Curated. Delivered.</div>
+    <div class="contact">
+      <div class="contact-line"><strong>Canopy Crates</strong> — a Canopy Collective company</div>
+      <div class="divider"></div>
+      <div class="contact-line">Cairns & Daintree · Queensland, Australia</div>
+    </div>
+    <div class="logo-area">
+      <div class="logo-ring">🌴</div>
+      <div class="logo-text">Canopy Collective</div>
+      <div class="logo-sub">Curated Regional Discovery</div>
+    </div>
+  </div>
+
+  <!-- DOTS -->
+  <div class="scene-dots" id="dots"></div>
+
+  <!-- CONTROLS -->
+  <div class="controls">
+    <button class="ctrl-btn" id="btnPrev">◀</button>
+    <button class="ctrl-btn" id="btnPlayPause">⏸ Pause</button>
+    <button class="ctrl-btn" id="btnNext">▶</button>
+  </div>
+
+</div>
+
+<script>
+  const scenes = Array.from(document.querySelectorAll('.scene'));
+  const progress = document.getElementById('progress');
+  const dotsContainer = document.getElementById('dots');
+  const btnPlay = document.getElementById('btnPlayPause');
+  const btnPrev = document.getElementById('btnPrev');
+  const btnNext = document.getElementById('btnNext');
+
+  let current = 0;
+  let playing = true;
+  let startTime = null;
+  let elapsed = 0;
+  let raf = null;
+
+  // Build dots
+  scenes.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(d);
+  });
+  const dots = Array.from(dotsContainer.querySelectorAll('.dot'));
+
+  function getDuration(idx) {
+    return parseInt(scenes[idx].dataset.duration) || 7000;
+  }
+
+  function goTo(idx) {
+    scenes[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = Math.max(0, Math.min(scenes.length - 1, idx));
+    scenes[current].classList.add('active');
+    dots[current].classList.add('active');
+    elapsed = 0;
+    startTime = null;
+    progress.style.width = '0%';
+  }
+
+  function tick(ts) {
+    if (!playing) return;
+    if (startTime === null) startTime = ts;
+    elapsed = ts - startTime;
+    const dur = getDuration(current);
+    const pct = Math.min((elapsed / dur) * 100, 100);
+    progress.style.width = pct + '%';
+    if (elapsed >= dur && current < scenes.length - 1) {
+      goTo(current + 1);
+    }
+    raf = requestAnimationFrame(tick);
+  }
+
+  raf = requestAnimationFrame(tick);
+
+  btnPlay.addEventListener('click', () => {
+    playing = !playing;
+    btnPlay.textContent = playing ? '⏸ Pause' : '▶ Play';
+    if (playing) {
+      startTime = null;
+      raf = requestAnimationFrame(tick);
+    } else {
+      cancelAnimationFrame(raf);
+    }
+  });
+
+  btnNext.addEventListener('click', () => {
+    if (current < scenes.length - 1) goTo(current + 1);
+  });
+  btnPrev.addEventListener('click', () => {
+    if (current > 0) goTo(current - 1);
+  });
+</script>
+</body>
+</html>
