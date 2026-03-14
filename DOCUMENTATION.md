@@ -275,6 +275,10 @@ All SVG illustrations use Sand Cream (`#F7EED8`) backgrounds and brand-consisten
 
 ### Square Online (Free Plan) — Primary Recommendation
 
+**URL:** https://squareup.com/au/en/online-store
+
+**Important:** Square Online is a product by **Square** (Block, Inc.), the payment processing company. It is **not** the same as **Squarespace** (squarespace.com), which is a separate company entirely. Square's main domain is `squareup.com`; in Australia the storefront subdomain is `yourname.square.site`.
+
 | Feature              | Detail                                      |
 |----------------------|---------------------------------------------|
 | Monthly cost         | $0/month (free forever)                     |
@@ -283,9 +287,9 @@ All SVG illustrations use Sand Cream (`#F7EED8`) backgrounds and brand-consisten
 | Local delivery tools | Built-in delivery zone management           |
 | QR code ordering     | Yes (free) — for AirBnb/hotel lobbies       |
 | Afterpay             | Native support in Australia                 |
-| AUD support          | Full (squareup.com/au)                      |
+| Sign-up URL          | https://squareup.com/au/en/online-store     |
 
-**Growth path:** Launch free → Validate at $36/month (Plus) → Scale to Shopify if 40+ orders/month.
+**Growth path:** Launch free → Validate at $36/month (Plus) for custom domain → Scale to Shopify if 40+ orders/month.
 
 ---
 
